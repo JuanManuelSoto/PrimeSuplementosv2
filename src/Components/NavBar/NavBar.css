@@ -1,0 +1,75 @@
+.NavBar-background {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border-bottom: 0.25vh solid black;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 100%;
+}
+.NavBar-B1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
+  font-weight: 600;
+}
+.NavBar-B2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.NavBar-B2B1 {
+  height: 70%;
+  width: 40%;
+  display: grid;
+  grid-template-columns: 40% 40%;
+  grid-template-rows: 100%;
+  justify-content: space-between;
+}
+
+.NavBar-B2B1B1 {
+  background-color: whitesmoke;
+  border: 0.1vh solid gray;
+  border-radius: 0.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1vw;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.NavBar-B2B1B1:hover {
+  background-color: #999;
+  color: white;
+}
+
+.NavBar-B2B1B2 {
+  background-color: whitesmoke;
+  border: 0.1vh solid gray;
+  border-radius: 0.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1vw;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.NavBar-B2B1B2:hover {
+  background-color: #999;
+  color: white;
+}
+
+.NavBar-B3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

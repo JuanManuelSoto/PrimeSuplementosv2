@@ -1,0 +1,48 @@
+.ItemList-background {
+  height: auto;
+  width: auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto;
+  justify-content: space-around;
+  grid-column-gap: 5vh;
+  color: white;
+}
+
+/*ItemList-Item-background*/
+
+.ItemList-Item-background {
+  height: auto;
+  width: 20vh;
+  background-color: white;
+  padding: 2vh;
+  color: black;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  justify-items: center;
+  align-content: space-around;
+  grid-row-gap: 1vh;
+  border-radius: 1vh;
+  border: 0.3vh solid gray;
+}
+
+.ItemList-Item-img {
+  height: 20vh;
+  width: auto;
+}
+
+.ItemList-Item-txt-1 {
+  margin: 0;
+  font-size: 1vw;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+}
+
+.ItemList-Item-txt-2 {
+  margin: 0;
+  font-size: 1vw;
+  font-weight: 500;
+  color: gray;
+}

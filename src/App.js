@@ -1,17 +1,16 @@
 import "./App.css";
 import NavBar from "./Components/NavBar/NavBar";
-import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "../src/Pages/HomePage/HomePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-Header">
-        <NavBar />
-      </header>
-      <div className="App-B1">
-        <ItemListContainer greeting={"Bienvenidos a Prime Suplementos"} />
-      </div>
-    </div>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

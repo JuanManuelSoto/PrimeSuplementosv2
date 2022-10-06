@@ -1,5 +1,7 @@
 .NavBar-background {
-  height: 100%;
+  position: fixed;
+  top: 0;
+  height: 10vh;
   width: 100%;
   background-color: white;
   border-bottom: 0.25vh solid black;
@@ -13,6 +15,8 @@
   justify-content: center;
   font-size: 1.5vw;
   font-weight: 600;
+  text-decoration: none;
+  color: black;
 }
 .NavBar-B2 {
   display: flex;

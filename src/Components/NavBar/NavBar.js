@@ -10,8 +10,12 @@ const NavBar = () => {
       </Link>
       <div className="NavBar-B2">
         <div className="NavBar-B2B1">
-          <button className="NavBar-B2B1B1">SUPLEMENTOS</button>
-          <button className="NavBar-B2B1B2">MERCHANDISING</button>
+          <Link to={"/suplementos"} className="NavBar-B2B1B1">
+            SUPLEMENTOS
+          </Link>
+          <Link to={"/merchandising"} className="NavBar-B2B1B2">
+            MERCHANDISING
+          </Link>
         </div>
       </div>
       <div className="NavBar-B3">

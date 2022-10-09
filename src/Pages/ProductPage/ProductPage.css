@@ -1,0 +1,11 @@
+.ProductPage-C2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Item-background {
+  height: 90%;
+  width: 60%;
+  background-color: white;
+}

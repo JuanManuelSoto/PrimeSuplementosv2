@@ -1,6 +1,7 @@
 import "./MerchandisingPage.css";
 import { productsList } from "../../Components/Products/Products";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const MerchandisingPage = () => {
   const [loading, setLoading] = useState(false);
@@ -24,7 +25,11 @@ const MerchandisingPage = () => {
               .filter((Item) => Item.category === "Merchandising")
               .map((Item) => {
                 return (
-                  <div className="ItemList-Item-background" key={Item.id}>
+                  <Link
+                    to={`/item/${Item.id}`}
+                    className="ItemList-Item-background"
+                    key={Item.id}
+                  >
                     <img src={Item.img} className="ItemList-Item-img" alt="" />
                     <p className="ItemList-Item-txt-1">{Item.name}</p>
                     <p className="ItemList-Item-txt-2">
@@ -33,7 +38,7 @@ const MerchandisingPage = () => {
                         currency: "ARS",
                       }).format(Item.price)}
                     </p>
-                  </div>
+                  </Link>
                 );
               })}
           </div>

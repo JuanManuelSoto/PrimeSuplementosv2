@@ -1,5 +1,7 @@
 import image1 from "../../Images/image1.png";
 import image2 from "../../Images/image2.png";
+import image3 from "../../Images/image3.png";
+import image4 from "../../Images/image4.png";
 
 export const productsList = [
   {
@@ -18,7 +20,7 @@ export const productsList = [
     type: "Creatine",
     id: "2",
     category: "Suplementos",
-    img: image1,
+    img: image4,
   },
   {
     name: "Gold Standard Pre-Workout",
@@ -27,7 +29,7 @@ export const productsList = [
     type: "Pre-Workout",
     id: "3",
     category: "Suplementos",
-    img: image1,
+    img: image3,
   },
   {
     name: "Oversize T-shirt",

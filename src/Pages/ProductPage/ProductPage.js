@@ -28,7 +28,7 @@ const ProductPage = () => {
                 <div className="Item-background">
                   <p className="Item-Txt-1">Category: {Item.category}</p>
                   <p className="Item-Txt-2">Product: {Item.name}</p>
-                  <img alt="" src={Item.img} />
+                  <img className="Item-Img-1" alt="" src={Item.img} />
                   <p className="Item-Txt-3">
                     {new Intl.NumberFormat("es-AR", {
                       style: "currency",

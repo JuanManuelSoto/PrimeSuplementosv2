@@ -2,10 +2,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  grid-template-columns: auto auto auto auto auto;
 }
-
 .Item-background {
   height: 90%;
   width: 60%;
   background-color: white;
+  grid-template-columns: auto auto auto auto auto auto;
+  border-radius: 1vh;
+  border: 0.3vh solid gray;
+}
+.Item-Txt-1 {
+  margin: auto;
+  font-size: 1.5vw;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+}
+.Item-Txt-2 {
+  font-size: 1.5vw;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+}
+.Item-Txt-3 {
+  font-size: 1.5vw;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+}
+.Item-Txt-4 {
+  font-size: 1.5vw;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+}
+.Item-Img-1 {
+  align-items: center;
+  justify-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

@@ -1,0 +1,57 @@
+.Cart-Background {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Cart-Content {
+  height: auto;
+  width: 50%;
+  background-color: aliceblue;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  align-content: flex-start;
+}
+.Cart-C-B1 {
+  height: 10vh;
+  border-bottom: 2px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 2vh 0 2vh;
+}
+.Cart-Svg {
+  height: 3vh;
+  width: auto;
+  cursor: pointer;
+}
+.Cart-C-B2 {
+  height: 40vh;
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: auto;
+  grid-row-gap: 2vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.CartRender-Background {
+  height: 15vh;
+  width: 100%;
+  background-color: red;
+  border: 2px solid black;
+}
+.Cart-Svg-2 {
+  height: 3vh;
+  width: auto;
+  cursor: pointer;
+  align-content: right;
+}
+.Cart-img {
+  height: 10px;
+  width: 100%;
+  border: 1px solid black;
+}

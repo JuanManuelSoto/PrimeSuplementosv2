@@ -48,3 +48,34 @@
   height: 50vh;
   width: auto;
 }
+.Item-B1 {
+  height: 5vh;
+  width: 20vh;
+  background-color: whitesmoke;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border: 1px solid black;
+  grid-template-rows: auto;
+  align-items: center;
+}
+.Item-btn-1 {
+  height: 100%;
+  margin: 0;
+  font-size: 1vw;
+  background: none;
+  border: none;
+  border-right: 1px solid black;
+}
+.Item-Txt-5 {
+  margin: 0;
+  text-align: center;
+  font-size: 1vw;
+}
+.Item-btn-2 {
+  height: 100%;
+  margin: 0;
+  font-size: 1vw;
+  background: none;
+  border: none;
+  border-left: 1px solid black;
+}

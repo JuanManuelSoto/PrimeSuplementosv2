@@ -1,5 +1,6 @@
 import "./CartWidget.css";
-const CartWidget = () => {
+
+export const CartWidget = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

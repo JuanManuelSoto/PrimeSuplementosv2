@@ -1,10 +1,16 @@
 import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext";
+import { useContext } from "react";
+import Cart from "../Cart/Cart";
 
 const NavBar = () => {
+  const { opencart, setOpencart } = useContext(CartContext);
+
   return (
     <div className="NavBar-background">
+      {opencart && <Cart />}
       <Link to={"/"} className="NavBar-B1">
         PrimeSuplementos
       </Link>
@@ -19,7 +25,9 @@ const NavBar = () => {
         </div>
       </div>
       <div className="NavBar-B3">
-        <CartWidget />
+        <div className="NavBar-B3B1" onClick={() => setOpencart(true)}>
+          <CartWidget />
+        </div>
       </div>
     </div>
   );

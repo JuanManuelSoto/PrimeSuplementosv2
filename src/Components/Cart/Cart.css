@@ -41,17 +41,44 @@
 .CartRender-Background {
   height: 15vh;
   width: 100%;
-  background-color: red;
+  background-color: whitesmoke;
   border: 2px solid black;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
+  justify-content: space-around;
+  align-items: center;
 }
-.Cart-Svg-2 {
+.CartRender-img {
+  height: 10vh;
+  width: auto;
+}
+.CartRender-B1 {
+  height: auto;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 2vh;
+  justify-items: center;
+}
+.CartRender-Txt1 {
+  margin: 0;
+  font-size: 1.5vw;
+  font-weight: 500;
+}
+.CartRender-Txt2 {
+  margin: 0;
+  font-size: 1.25vw;
+  font-weight: 500;
+}
+.CartRender-Txt3 {
+  margin: 0;
+  font-size: 1.5vw;
+  font-weight: 500;
+}
+.CartRender-Svg-2 {
   height: 3vh;
   width: auto;
   cursor: pointer;
-  align-content: right;
-}
-.Cart-img {
-  height: 10px;
-  width: 100%;
-  border: 1px solid black;
 }

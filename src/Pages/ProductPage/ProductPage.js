@@ -37,6 +37,7 @@ const ProductPage = () => {
   const price = data.price;
   const id = data.id;
   const quantity = count;
+  const img = data.img;
 
   return (
     <div className="SuplementosPage-background">
@@ -67,7 +68,7 @@ const ProductPage = () => {
               </div>
               <button
                 className="Item-btn"
-                onClick={() => addToCart(name, price, id, quantity)}
+                onClick={() => addToCart(name, price, id, quantity, img)}
               >
                 Add to cart
               </button>

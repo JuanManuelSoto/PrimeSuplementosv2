@@ -8,17 +8,15 @@ const CartProvider = ({ children }) => {
 
   console.log(cart);
 
-  const addToCart = (name, price, id, quantity) => {
-    setCart([...cart, { name, price, id, quantity }]);
+  const addToCart = (name, price, id, quantity, img) => {
+    const foundProduct = cart.find((product) => product.id === id);
+    const newPrice = price * quantity;
+    if (!foundProduct) {
+      setCart([...cart, { name, price, id, quantity, img, newPrice }]);
+    }
   };
 
   const clearCart = () => setCart([]);
-
-  const isInCart = (id) =>
-    cart.find((product) => product.id === id) ? true : false;
-
-  const removeProduct = (id) =>
-    setCart(cart.filter((product) => product.id !== id));
 
   /* controladores */
 
@@ -29,8 +27,7 @@ const CartProvider = ({ children }) => {
       value={{
         cart,
         clearCart,
-        isInCart,
-        removeProduct,
+
         opencart,
         setOpencart,
         addToCart,

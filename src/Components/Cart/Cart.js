@@ -1,10 +1,19 @@
 import "./Cart.css";
 import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { setOpencart, cart, removeProduct } = useContext(CartContext);
+  const { setOpencart, cart, removeProduct, totalPrice } =
+    useContext(CartContext);
 
+  // if (cart.length === 0) {
+  //   return (
+  //     <>
+  //       <p>Cart is empty</p>;<Link to="/">Buy something</Link>
+  //     </>
+  //   );
+  // }
   const cartRender = () =>
     cart.map((item) => (
       <div key={item.id} className="CartRender-Background">
@@ -20,7 +29,7 @@ const Cart = () => {
         </div>
         <p className="CartRender-Txt3">Quantity: {item.quantity}</p>
         <svg
-          onClick={() => removeProduct()}
+          onClick={() => removeProduct(item.id)}
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
@@ -39,22 +48,31 @@ const Cart = () => {
 
   return (
     <div className="Cart-Background">
-      <div className="Cart-Content">
-        <div className="Cart-C-B1">
-          <svg
-            onClick={() => setOpencart(false)}
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fillRule="currentColor"
-            className="Cart-Svg"
-            viewBox="0 0 16 16"
-          >
-            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-          </svg>
+      {cart.length > 0 ? (
+        <div className="Cart-Content">
+          <div className="Cart-C-B1">
+            <svg
+              onClick={() => setOpencart(false)}
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fillRule="currentColor"
+              className="Cart-Svg"
+              viewBox="0 0 16 16"
+            >
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </div>
+          <div className="Cart-C-B2">{cartRender()}</div>
+          <div className="Cart-C-B3">
+            <p className="Cart-C-B3-Txt1">Subtotal: ${totalPrice()}</p>
+          </div>
         </div>
-        <div className="Cart-C-B2">{cartRender()}</div>
-      </div>
+      ) : (
+        <div className="EmptyCartContainer">
+          <p>Cart is empty</p>;<Link to="/">Buy something</Link>
+        </div>
+      )}
     </div>
   );
 };

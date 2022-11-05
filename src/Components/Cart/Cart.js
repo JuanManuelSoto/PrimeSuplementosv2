@@ -7,13 +7,6 @@ const Cart = () => {
   const { setOpencart, cart, removeProduct, totalPrice } =
     useContext(CartContext);
 
-  // if (cart.length === 0) {
-  //   return (
-  //     <>
-  //       <p>Cart is empty</p>;<Link to="/">Buy something</Link>
-  //     </>
-  //   );
-  // }
   const cartRender = () =>
     cart.map((item) => (
       <div key={item.id} className="CartRender-Background">
@@ -21,6 +14,8 @@ const Cart = () => {
         <div className="CartRender-B1">
           <p className="CartRender-Txt1"> {item.name}</p>
           <p className="CartRender-Txt2">
+            {" "}
+            Subtotal:
             {new Intl.NumberFormat("es-AR", {
               style: "currency",
               currency: "ARS",
@@ -65,12 +60,19 @@ const Cart = () => {
           </div>
           <div className="Cart-C-B2">{cartRender()}</div>
           <div className="Cart-C-B3">
-            <p className="Cart-C-B3-Txt1">Subtotal: ${totalPrice()}</p>
+            <p className="Cart-C-B3-Txt1"> Final Price: ${totalPrice()}</p>
           </div>
         </div>
       ) : (
         <div className="EmptyCartContainer">
-          <p>Cart is empty</p>;<Link to="/">Buy something</Link>
+          <p className="Cart-C-B4-Txt1">Cart is Empty</p>
+          <Link
+            to="/"
+            className="Cart-C-B4-Txt2"
+            onClick={() => setOpencart(false)}
+          >
+            Buy something
+          </Link>
         </div>
       )}
     </div>

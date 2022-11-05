@@ -94,4 +94,21 @@
   cursor: pointer;
 }
 .EmptyCartContainer {
+  height: 50vh;
+  width: 50%;
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1vh;
+  border-bottom: 1vh;
+  border-top: 1vh;
+}
+.Cart-C-B4-Txt1 {
+  font-size: 5vh;
+  font-weight: 500;
+}
+.Cart-C-B4-Txt2 {
+  font-size: 5vh;
+  font-weight: 500;
 }

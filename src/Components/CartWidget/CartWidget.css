@@ -1,5 +1,25 @@
+.CW-B1 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
 .CW-svg {
   height: 3vh;
-  width: fit-content;
+  width: auto;
+  cursor: pointer;
+}
+
+.CW-txt-1 {
+  margin: 0;
+  top: -2.1vh;
+  right: -2.1vh;
+  font-size: 1vw;
+  font-weight: 500;
+  color: black;
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 0.3vh;
+  padding: 0 0.5vh 0 0.5vh;
   cursor: pointer;
 }

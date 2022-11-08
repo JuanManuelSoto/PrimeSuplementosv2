@@ -34,8 +34,7 @@
 }
 
 .NavBar-B2B1B1 {
-  background-color: whitesmoke;
-  border: 0.1vh solid gray;
+  border: 0.1vh solid black;
   border-radius: 0.5vh;
   display: flex;
   align-items: center;
@@ -54,8 +53,7 @@
 }
 
 .NavBar-B2B1B2 {
-  background-color: whitesmoke;
-  border: 0.1vh solid gray;
+  border: 0.1vh solid black;
   border-radius: 0.5vh;
   display: flex;
   align-items: center;

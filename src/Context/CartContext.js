@@ -6,8 +6,6 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  console.log(cart);
-
   const addToCart = (name, price, id, quantity, img) => {
     const isInCart = cart.find((product) => product.id === id) ? true : false;
     const quantity2 = quantity + quantity;
@@ -42,8 +40,6 @@ const CartProvider = ({ children }) => {
   const clearCart = () => setCart([]);
   const removeProduct = (id) =>
     setCart(cart.filter((product) => product.id !== id));
-
-  /* controladores */
 
   const [opencart, setOpencart] = useState(false);
 

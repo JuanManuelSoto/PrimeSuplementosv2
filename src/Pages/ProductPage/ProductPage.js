@@ -1,5 +1,5 @@
 import "./ProductPage.css";
-import { productsList } from "../../Components/Products/Products";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../Context/CartContext";
@@ -7,7 +7,6 @@ import { CartContext } from "../../Context/CartContext";
 const ProductPage = () => {
   const { addToCart } = useContext(CartContext);
   const { itemid } = useParams();
-  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({});
   const [count, setCount] = useState(1);
   const Add = () => {
@@ -19,37 +18,30 @@ const ProductPage = () => {
     }
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(true);
-    }, 1000);
-  }, []);
-
   const loader = <div className="loader"></div>;
 
   useEffect(() => {
-    productsList
-      .filter((Item) => Item.id === itemid)
-      .map((Item) => setData(Item));
+    const querydb = getFirestore();
+    const queryDoc = doc(querydb, "products", itemid);
+    getDoc(queryDoc).then((res) => setData({ id: res.id, ...res.data() }));
   }, [itemid]);
 
   const name = data.name;
   const price = data.price;
   const id = data.id;
   const quantity = count;
-  const img = data.img;
+  const img = data.image;
 
   return (
     <div className="SuplementosPage-background">
-      {!loading && loader}
-      {loading && (
+      {data.name ? (
         <div className="SuplementosPage-content">
           <div className="SuplementosPage-C1"></div>
           <div className="ProductPage-C2">
             <div className="Item-background" key={itemid}>
               <p className="Item-Txt-1">Category: {data.category}</p>
               <p className="Item-Txt-2">Product: {data.name}</p>
-              <img className="Item-Img-1" alt="" src={data.img} />
+              <img className="Item-Img-1" alt="" src={data.image} />
               <p className="Item-Txt-3">
                 {new Intl.NumberFormat("es-AR", {
                   style: "currency",
@@ -75,6 +67,8 @@ const ProductPage = () => {
             </div>
           </div>
         </div>
+      ) : (
+        loader
       )}
     </div>
   );

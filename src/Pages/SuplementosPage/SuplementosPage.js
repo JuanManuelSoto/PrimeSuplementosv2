@@ -1,27 +1,30 @@
 import "./SuplementosPage.css";
-import { productsList } from "../../Components/Products/Products";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const SuplementosPage = () => {
-  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(true);
-    }, 1000);
+    const querydb = getFirestore();
+    const queryCollection = collection(querydb, "products");
+    getDocs(queryCollection).then((res) =>
+      setData(
+        res.docs.map((product) => ({ id: product.id, ...product.data() }))
+      )
+    );
   }, []);
 
   const loader = <div className="loader"></div>;
 
   return (
     <div className="SuplementosPage-background">
-      {!loading && loader}
-      {loading && (
+      {data.length > 0 ? (
         <div className="SuplementosPage-content">
           <div className="SuplementosPage-C1"></div>
           <div className="SuplementosPage-C2">
-            {productsList
+            {data
               .filter((Item) => Item.category === "Suplementos")
               .map((Item) => {
                 return (
@@ -30,7 +33,11 @@ const SuplementosPage = () => {
                     className="ItemList-Item-background"
                     key={Item.id}
                   >
-                    <img src={Item.img} className="ItemList-Item-img" alt="" />
+                    <img
+                      src={Item.image}
+                      className="ItemList-Item-img"
+                      alt=""
+                    />
                     <p className="ItemList-Item-txt-1">{Item.name}</p>
                     <p className="ItemList-Item-txt-2">
                       {new Intl.NumberFormat("es-AR", {
@@ -43,6 +50,8 @@ const SuplementosPage = () => {
               })}
           </div>
         </div>
+      ) : (
+        loader
       )}
     </div>
   );

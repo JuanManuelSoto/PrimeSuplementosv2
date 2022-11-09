@@ -40,15 +40,20 @@
   overflow-x: hidden;
 }
 .Cart-C-B3 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: space-around;
   height: 5vh;
   background-color: whitesmoke;
   border-top: 2px solid black;
   border-radius: 0 0 1vh 1vh;
+  align-items: center;
 }
 .Cart-C-B3-Txt1 {
+  margin: 0;
   font-size: 1vw;
   font-weight: 500;
-  position: fixed;
 }
 .CartRender-Background {
   height: 15vh;
@@ -112,4 +117,10 @@
 .Cart-C-B4-Txt2 {
   font-size: 5vh;
   font-weight: 500;
+}
+.Cart-C-B3-Btn1 {
+  margin: 0;
+  font-size: 2vh;
+  font-weight: 200;
+  cursor: pointer;
 }

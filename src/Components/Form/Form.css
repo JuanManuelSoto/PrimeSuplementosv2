@@ -1,0 +1,82 @@
+.Form-Container {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Form-Content {
+  height: auto;
+  width: auto;
+  background-color: whitesmoke;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  grid-row-gap: 4vh;
+  border-radius: 1vh;
+  border-color: 1vh solid black;
+  justify-items: center;
+  padding: 8vh 7vh 8vh 7vh;
+}
+.Form-Content-B1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.Form-Content-Txt1 {
+  margin: 0;
+  font-size: 2vh;
+  font-weight: 500;
+  border-bottom: 2px solid black;
+  text-align: center;
+  width: fit-content;
+}
+.Form-Content-Btn1 {
+  cursor: pointer;
+  height: 2vh;
+  width: auto;
+}
+.Form-Content-B2 {
+  font-size: 2vh;
+  font-weight: 200;
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(3, 1fr);
+  grid-row-gap: 2vh;
+
+  justify-content: center;
+  width: 100%;
+}
+.Form-Content-B2-B1 {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 2vh;
+  font-weight: 200;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-column-gap: 2vh;
+  justify-content: space-between;
+}
+.Form-Content-Btn2 {
+  margin: 0;
+  font-size: 2vh;
+  font-weight: 200;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+.input {
+  width: 20vh;
+  font-weight: 500;
+}
+label {
+  font-weight: 500;
+}

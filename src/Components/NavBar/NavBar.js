@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
 import Cart from "../Cart/Cart";
+import Form from "../Form/Form";
 
 const NavBar = () => {
-  const { opencart, setOpencart } = useContext(CartContext);
+  const { opencart, setOpencart, openForm } = useContext(CartContext);
 
   return (
     <div className="NavBar-background">
       {opencart && <Cart />}
+      {openForm && <Form />}
       <Link to={"/"} className="NavBar-B1">
         PrimeSuplementos
       </Link>

@@ -2,33 +2,10 @@ import "./Cart.css";
 import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 const Cart = () => {
-  const { setOpencart, cart, removeProduct, totalPrice } =
+  const { setOpencart, cart, removeProduct, totalPrice, setOpenForm } =
     useContext(CartContext);
-
-  const order = {
-    buyer: {
-      name: "Juan",
-      email: " primesuplementosv2",
-      phone: "1235342",
-      addres: "Espelta",
-    },
-    items: cart.map((item) => ({
-      name: item.name,
-      id: item.id,
-      price: item.price,
-      quantity: item.quantity,
-    })),
-    total: totalPrice(),
-  };
-
-  const handleClick = () => {
-    const db = getFirestore();
-    const ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, order).then(({ id }) => console.log(id));
-  };
 
   const cartRender = () =>
     cart.map((item) => (
@@ -84,8 +61,11 @@ const Cart = () => {
           <div className="Cart-C-B2">{cartRender()}</div>
           <div className="Cart-C-B3">
             <p className="Cart-C-B3-Txt1"> Final Price: ${totalPrice()}</p>
-            <button className="Cart-C-B3-Btn1" onClick={handleClick}>
-              Buy Order
+            <button
+              className="Cart-C-B3-Btn1"
+              onClick={() => setOpenForm(true) & setOpencart(false)}
+            >
+              Set Order
             </button>
           </div>
         </div>

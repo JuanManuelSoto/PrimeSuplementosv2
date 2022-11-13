@@ -29,6 +29,7 @@ const CartProvider = ({ children }) => {
       ]);
     }
   };
+
   const totalPrice = () => {
     return cart.reduce((prev, act) => prev + act.quantity * act.price, 0);
   };
@@ -38,18 +39,27 @@ const CartProvider = ({ children }) => {
       0
     );
 
-  const clearCart = () => setCart([]);
-  const removeProduct = (id) =>
-    setCart(cart.filter((product) => product.id !== id));
+  const [username, setUsername] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Phone, setPhone] = useState("");
+  const [orderId, setOrderId] = useState();
+
+  const [CheckoutStatus, setCheckoutStatus] = useState(false);
+  const [CheckoutOrderStatus, setCheckoutOrderStatus] = useState(false);
 
   const [opencart, setOpencart] = useState(false);
   const [openForm, setOpenForm] = useState(false);
 
+  const clearCart = () => setCart([]);
+
+  const removeProduct = (id) =>
+    setCart(cart.filter((product) => product.id !== id));
+
   const order = {
     buyer: {
-      name: "Juan",
-      email: " primesuplementosv2",
-      phone: "1235342",
+      name: username,
+      email: Email,
+      phone: Phone,
     },
     items: cart.map((item) => ({
       name: item.name,
@@ -63,7 +73,7 @@ const CartProvider = ({ children }) => {
   const sendOrder = () => {
     const db = getFirestore();
     const ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, order).then(({ id }) => console.log(id));
+    addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
   };
 
   return (
@@ -72,6 +82,10 @@ const CartProvider = ({ children }) => {
         cart,
         opencart,
         openForm,
+        orderId,
+        CheckoutOrderStatus,
+        CheckoutStatus,
+        username,
         setOpenForm,
         clearCart,
         setOpencart,
@@ -80,6 +94,12 @@ const CartProvider = ({ children }) => {
         totalProducts,
         removeProduct,
         sendOrder,
+        setUsername,
+        setEmail,
+        setPhone,
+        setOrderId,
+        setCheckoutOrderStatus,
+        setCheckoutStatus,
       }}
     >
       {children}

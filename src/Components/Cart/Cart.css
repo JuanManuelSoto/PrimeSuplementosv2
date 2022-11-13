@@ -103,20 +103,22 @@
   height: 50vh;
   width: 50%;
   background-color: whitesmoke;
-  display: flex;
+  display: grid;
+  grid-template-rows: auto auto;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   border-radius: 1vh;
-  border-bottom: 1vh;
-  border-top: 1vh;
 }
 .Cart-C-B4-Txt1 {
+  margin: 0;
   font-size: 5vh;
   font-weight: 500;
 }
 .Cart-C-B4-Txt2 {
   font-size: 5vh;
   font-weight: 500;
+  text-decoration: underline;
+  color: gray;
 }
 .Cart-C-B3-Btn1 {
   margin: 0;

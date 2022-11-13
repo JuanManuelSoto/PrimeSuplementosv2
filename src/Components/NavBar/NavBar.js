@@ -5,12 +5,15 @@ import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
 import Cart from "../Cart/Cart";
 import Form from "../Form/Form";
+import CheckoutOrder from "../CheckoutOrder/CheckoutOrder";
 
 const NavBar = () => {
-  const { opencart, setOpencart, openForm } = useContext(CartContext);
+  const { opencart, setOpencart, openForm, CheckoutOrderStatus } =
+    useContext(CartContext);
 
   return (
     <div className="NavBar-background">
+      {CheckoutOrderStatus && <CheckoutOrder />}
       {opencart && <Cart />}
       {openForm && <Form />}
       <Link to={"/"} className="NavBar-B1">

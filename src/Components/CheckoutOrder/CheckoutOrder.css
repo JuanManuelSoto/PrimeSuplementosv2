@@ -29,6 +29,8 @@
 }
 
 .CheckoutOrder-container-Btn1 {
+  font-weight: 500;
+  font-size: 2vh;
   text-decoration: underline;
   color: gray;
 }

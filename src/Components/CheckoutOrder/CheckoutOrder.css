@@ -19,6 +19,7 @@
   border-color: 1vh solid black;
   justify-items: center;
   padding: 8vh 7vh 8vh 7vh;
+  font-weight: 500;
 }
 .CheckoutOrderSent-container-Btn {
   height: 10vh;

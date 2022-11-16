@@ -21,10 +21,10 @@ const NavBar = () => {
       </Link>
       <div className="NavBar-B2">
         <div className="NavBar-B2B1">
-          <Link to={"/suplementos"} className="NavBar-B2B1B1">
+          <Link to={"/section/Suplementos"} className="NavBar-B2B1B1">
             SUPLEMENTOS
           </Link>
-          <Link to={"/merchandising"} className="NavBar-B2B1B2">
+          <Link to={"/section/Merchandising"} className="NavBar-B2B1B2">
             MERCHANDISING
           </Link>
         </div>

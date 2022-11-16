@@ -1,7 +1,8 @@
-.ItemListContainer-background {
+.SectionPage-background {
   height: auto;
   width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 14vh 0 4vh 0;
 }

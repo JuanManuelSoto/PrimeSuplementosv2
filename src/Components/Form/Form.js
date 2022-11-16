@@ -41,7 +41,7 @@ const Form = () => {
             </div>
             <div className="Form-Content-B2">
               <div className="Form-Content-B2-B1">
-                <label>Name </label>
+                <label>Name</label>
                 <input
                   className="input"
                   onChange={(e) => setUsername(e.target.value)}

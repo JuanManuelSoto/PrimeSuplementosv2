@@ -1,24 +1,13 @@
 import "./ItemList.css";
 import { Link } from "react-router-dom";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { CartContext } from "../../Context/CartContext";
+import { useContext } from "react";
 
 const ItemList = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const querydb = getFirestore();
-    const queryCollection = collection(querydb, "products");
-    getDocs(queryCollection).then((res) =>
-      setData(
-        res.docs.map((product) => ({ id: product.id, ...product.data() }))
-      )
-    );
-  }, []);
-
+  const { FinalData } = useContext(CartContext);
   return (
     <div className="ItemList-background">
-      {data.map((Item) => {
+      {FinalData.map((Item) => {
         return (
           <Link
             to={`/item/${Item.id}`}

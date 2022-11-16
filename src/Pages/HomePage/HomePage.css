@@ -1,19 +1,8 @@
 .HomePage-background {
-  background-color: #282c34;
-  height: 100%;
+  height: auto;
   width: 100%;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 10vh auto;
-  justify-content: center;
-}
-
-.HomePage-B1 {
-  background-color: none;
-}
-
-.HomePage-B2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 14vh 0 4vh 0;
 }

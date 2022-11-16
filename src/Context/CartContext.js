@@ -1,6 +1,13 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { useState } from "react";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getFirestore,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 export const CartContext = createContext();
 
@@ -76,6 +83,48 @@ const CartProvider = ({ children }) => {
     addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
   };
 
+  /*DATA FETCH*/
+
+  const [ParamPath1, setParamPath1] = useState("");
+
+  const [data, setData] = useState([]);
+  const [data1, setData1] = useState([]);
+  const [FinalData, setFinalData] = useState([]);
+
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const querydb = getFirestore();
+    const queryCollection = collection(querydb, "products");
+    const queryFilter = query(
+      queryCollection,
+      where("category", "==", ParamPath1)
+    );
+    getDocs(queryCollection).then((res) =>
+      setData(
+        res.docs.map((product) => ({ id: product.id, ...product.data() }))
+      )
+    );
+    getDocs(queryFilter).then((res) =>
+      setData1(
+        res.docs.map((product) => ({ id: product.id, ...product.data() }))
+      )
+    );
+  }, [ParamPath1]);
+
+  useEffect(() => {
+    if (ParamPath1 === "Suplementos" || ParamPath1 === "Merchandising") {
+      setFinalData(data1);
+    } else if (ParamPath1 === "Home") {
+      setFinalData(data);
+    }
+    if (FinalData.length > 0) {
+      setLoaded(true);
+    } else {
+      setLoaded(false);
+    }
+  }, [ParamPath1, data, data1, FinalData, loaded]);
+
   return (
     <CartContext.Provider
       value={{
@@ -86,6 +135,8 @@ const CartProvider = ({ children }) => {
         CheckoutOrderStatus,
         CheckoutStatus,
         username,
+        FinalData,
+        loaded,
         setOpenForm,
         clearCart,
         setOpencart,
@@ -100,6 +151,7 @@ const CartProvider = ({ children }) => {
         setOrderId,
         setCheckoutOrderStatus,
         setCheckoutStatus,
+        setParamPath1,
       }}
     >
       {children}

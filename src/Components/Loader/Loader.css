@@ -1,0 +1,31 @@
+.Loader-background {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 10vh auto;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.loader {
+  border: 6px solid #f3f3f3; /* Light grey */
+  border-top: 6px solid gray; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

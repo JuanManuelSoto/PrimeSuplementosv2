@@ -18,8 +18,6 @@ const ProductPage = () => {
     }
   };
 
-  const loader = <div className="loader"></div>;
-
   useEffect(() => {
     const querydb = getFirestore();
     const queryDoc = doc(querydb, "products", itemid);
@@ -31,45 +29,31 @@ const ProductPage = () => {
   const id = data.id;
   const quantity = count;
   const img = data.image;
+  const stock = data.stock;
 
   return (
     <div className="SuplementosPage-background">
-      {data.name ? (
-        <div className="SuplementosPage-content">
-          <div className="SuplementosPage-C1"></div>
-          <div className="ProductPage-C2">
-            <div className="Item-background" key={itemid}>
-              <p className="Item-Txt-1">Category: {data.category}</p>
-              <p className="Item-Txt-2">Product: {data.name}</p>
-              <img className="Item-Img-1" alt="" src={data.image} />
-              <p className="Item-Txt-3">
-                {new Intl.NumberFormat("es-AR", {
-                  style: "currency",
-                  currency: "ARS",
-                }).format(data.price)}
-              </p>
-              <p className="Item-Txt-4">Available Stock: {data.stock}</p>
-              <div className="Item-B1">
-                <button className="Item-btn-1" onClick={() => Delete()}>
-                  -
-                </button>
-                <p className="Item-Txt-5">{count}</p>
-                <button className="Item-btn-2" onClick={() => Add()}>
-                  +
-                </button>
-              </div>
-              <button
-                className="Item-btn"
-                onClick={() => addToCart(name, price, id, quantity, img)}
-              >
-                Add to cart
-              </button>
-            </div>
+      <div></div>
+      <div className="SuplementosPage-content">
+        <img src={img} className="SuplementosPage-img" alt="" />
+        <p className="SuplementosPage-txt-1">{name}</p>
+        <p className="SuplementosPage-txt-2">Available stock: {stock}</p>
+        <div className="SuplementosPage-C-B1">
+          <div className="SuplementosPage-C-B1B1" onClick={() => Delete()}>
+            -
+          </div>
+          <div className="SuplementosPage-C-B1B2">{count}</div>
+          <div className="SuplementosPage-C-B1B1" onClick={() => Add()}>
+            +
           </div>
         </div>
-      ) : (
-        loader
-      )}
+        <button
+          className="SuplementosPage-btn"
+          onClick={() => addToCart(name, price, id, quantity, img)}
+        >
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 };
